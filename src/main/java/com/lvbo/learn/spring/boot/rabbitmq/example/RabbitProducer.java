@@ -14,8 +14,8 @@ public class RabbitProducer {
         ConnectionFactory connectionFactory = new ConnectionFactory();
         connectionFactory.setHost("127.0.0.1");
         connectionFactory.setPort(5672);
-        connectionFactory.setUsername("root");
-        connectionFactory.setPassword("root123");
+        connectionFactory.setUsername("admin");
+        connectionFactory.setPassword("admin");
         Connection connection = connectionFactory.newConnection();
         Channel channel = connection.createChannel();
         channel.exchangeDeclare("exchange_demo", "direct", true, false, null);

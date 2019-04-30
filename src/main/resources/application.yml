@@ -2,8 +2,8 @@ spring:
   rabbitmq:
     host: localhost
     port: 5672
-    username: root
-    password: root123
+    username: admin
+    password: admin
     publisher-confirms: true
     publisher-returns: true
     listener:
