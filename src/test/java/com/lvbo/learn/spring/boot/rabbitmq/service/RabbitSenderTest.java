@@ -36,6 +36,7 @@ public class RabbitSenderTest {
                 return message;
             }
         };
-        rabbitTemplate.convertAndSend("direct_exchange_c","routing_2", "test1", messagePostProcessor);
+//        rabbitTemplate.convertAndSend("direct_exchange_c","routing_2", "test1", messagePostProcessor);
+        rabbitTemplate.convertAndSend(null, "hello_queue", "test1", messagePostProcessor);
     }
 }
