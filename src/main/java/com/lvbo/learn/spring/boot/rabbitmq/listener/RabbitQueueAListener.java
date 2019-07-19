@@ -1,4 +1,4 @@
-package com.lvbo.learn.spring.boot.rabbitmq.service;
+package com.lvbo.learn.spring.boot.rabbitmq.listener;
 
 import com.rabbitmq.client.Channel;
 import org.springframework.amqp.core.Message;
@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Component
 @RabbitListener(queues = "queueA")
-public class RabbitQueueAReceiver {
+public class RabbitQueueAListener {
 
     @RabbitHandler
     public void process(String hello, Channel channel, Message message) throws IOException {
