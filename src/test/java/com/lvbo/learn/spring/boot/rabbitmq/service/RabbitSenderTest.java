@@ -2,6 +2,9 @@ package com.lvbo.learn.spring.boot.rabbitmq.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.amqp.AmqpException;
+import org.springframework.amqp.core.Message;
+import org.springframework.amqp.core.MessagePostProcessor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,6 +29,13 @@ public class RabbitSenderTest {
     public void testSendRouting1() {
 //        rabbitTemplate.convertAndSend("direct_exchange_a","routing_1", "test1");
 //        rabbitTemplate.convertAndSend("routing_1", "test1");
-        rabbitTemplate.convertAndSend("direct_exchange_c","routing_2", "test1");
+        MessagePostProcessor messagePostProcessor = new MessagePostProcessor() {
+            @Override
+            public Message postProcessMessage(Message message) throws AmqpException {
+                message.getMessageProperties().setHeader("header1", "mm");
+                return message;
+            }
+        };
+        rabbitTemplate.convertAndSend("direct_exchange_c","routing_2", "test1", messagePostProcessor);
     }
 }
