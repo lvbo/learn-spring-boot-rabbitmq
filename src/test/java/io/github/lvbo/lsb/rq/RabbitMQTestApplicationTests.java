@@ -1,4 +1,4 @@
-package com.lvbo.learn.spring.boot.rabbitmq;
+package io.github.lvbo.lsb.rq;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

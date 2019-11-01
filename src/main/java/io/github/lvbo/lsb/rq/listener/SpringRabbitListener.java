@@ -1,4 +1,4 @@
-package com.lvbo.learn.spring.boot.rabbitmq.listener;
+package io.github.lvbo.lsb.rq.listener;
 
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

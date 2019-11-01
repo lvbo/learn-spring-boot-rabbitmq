@@ -1,4 +1,4 @@
-package com.lvbo.learn.spring.boot.rabbitmq.domain;
+package io.github.lvbo.lsb.rq.domain;
 
 import java.io.Serializable;
 

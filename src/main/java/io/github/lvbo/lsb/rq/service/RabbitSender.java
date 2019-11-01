@@ -1,6 +1,6 @@
-package com.lvbo.learn.spring.boot.rabbitmq.service;
+package io.github.lvbo.lsb.rq.service;
 
-import com.lvbo.learn.spring.boot.rabbitmq.domain.MessageObj;
+import io.github.lvbo.lsb.rq.domain.MessageObj;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;

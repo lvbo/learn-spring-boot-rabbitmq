@@ -1,4 +1,4 @@
-package com.lvbo.learn.spring.boot.rabbitmq.config;
+package io.github.lvbo.lsb.rq.config;
 
 import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;

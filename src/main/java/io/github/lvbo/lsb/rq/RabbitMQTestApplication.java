@@ -1,4 +1,4 @@
-package com.lvbo.learn.spring.boot.rabbitmq;
+package io.github.lvbo.lsb.rq;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

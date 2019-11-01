@@ -1,4 +1,4 @@
-package com.lvbo.learn.spring.boot.rabbitmq.example;
+package io.github.lvbo.lsb.rq.example;
 
 import com.rabbitmq.client.*;
 

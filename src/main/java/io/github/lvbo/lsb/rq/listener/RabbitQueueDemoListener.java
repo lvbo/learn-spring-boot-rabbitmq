@@ -1,4 +1,4 @@
-package com.lvbo.learn.spring.boot.rabbitmq.listener;
+package io.github.lvbo.lsb.rq.listener;
 
 import com.rabbitmq.client.Channel;
 import org.springframework.amqp.core.Message;
