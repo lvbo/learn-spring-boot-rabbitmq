@@ -1,7 +1,10 @@
 ## 学习Spring Boot集成RabbitMQ的工程
 
-- 学习了各种Exchange和Queue的定义及绑定方式
-- 学习了手动发布确认和接收后确认如何定义
+- exchange类型为fonout/direct/topic的示例
+- 消费者手动确认的示例
+- 携带消息头的示例
+- 发送和接收对象的示例
+- publisher confirm callback和publisher return callback的示例
 
 ## io.github.lvbo.lsb.rq.example
 

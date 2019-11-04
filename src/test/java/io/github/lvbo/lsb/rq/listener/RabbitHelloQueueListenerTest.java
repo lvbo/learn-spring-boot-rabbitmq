@@ -2,8 +2,6 @@ package io.github.lvbo.lsb.rq.listener;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * @author lvbo
  * @version V1.0
