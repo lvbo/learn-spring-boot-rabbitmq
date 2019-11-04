@@ -85,4 +85,14 @@ public class RabbitSenderTest {
     public void sendToTopicExchage123() {
         rabbitSender.send(RabbitConfig.TOPIC_EXCHANGE, "topic.queue.two", "1 2 3 接收!");
     }
+
+    @Test
+    public void sendToManualAckQueueSuccess() {
+        rabbitSender.send("", RabbitConfig.MANUAL_ACK_QUEUE, "给我处理一下啊!");
+    }
+
+    @Test
+    public void sendToManualAckQueueFail() {
+        rabbitSender.send("", RabbitConfig.MANUAL_ACK_QUEUE, "我是一条fail消息!");
+    }
 }

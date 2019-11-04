@@ -26,6 +26,7 @@ public class RabbitConfig {
     public static final String TOPIC_QUEUE_2 = "topic_queue_2";
     public static final String TOPIC_QUEUE_3 = "topic_queue_3";
     public static final String TOPIC_EXCHANGE = "topic_exchange";
+    public static final String MANUAL_ACK_QUEUE = "manual_ack_queue";
 
     /**
      * 此Queue绑定默认的Direct类型的交换器
@@ -159,5 +160,10 @@ public class RabbitConfig {
     @Bean
     public Binding topicQueue3BindingTopicExchange(Queue topicQueue3, TopicExchange topicExchange) {
         return BindingBuilder.bind(topicQueue3).to(topicExchange).with("topic.#");
+    }
+
+    @Bean
+    public Queue manualAckQueue() {
+        return new Queue(MANUAL_ACK_QUEUE);
     }
 }
