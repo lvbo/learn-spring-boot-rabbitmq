@@ -93,4 +93,9 @@ public class RabbitSenderTest {
         };
         rabbitTemplate.convertAndSend("", RabbitConfig.BRING_HEADER_MESSAGE_QUEUE, "test1", messagePostProcessor);
     }
+
+    @Test
+    public void sendObj() {
+        rabbitSender.sendObj();
+    }
 }

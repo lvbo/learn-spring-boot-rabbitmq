@@ -29,6 +29,7 @@ public class RabbitConfig {
     public static final String MANUAL_ACK_QUEUE = "manual_ack_queue";
     public static final String BRING_HEADER_MESSAGE_QUEUE = "bring_header_message_queue";
     public static final String MY_MSG_HEADER = "my_msg_header";
+    public static final String OBJECT_QUEUE = "object_queue";
 
     /**
      * 此Queue绑定默认的Direct类型的交换器
@@ -172,5 +173,10 @@ public class RabbitConfig {
     @Bean
     public Queue bringHeaderMessageQueue() {
         return new Queue(BRING_HEADER_MESSAGE_QUEUE);
+    }
+
+    @Bean
+    public Queue objectQueue() {
+        return new Queue(OBJECT_QUEUE);
     }
 }

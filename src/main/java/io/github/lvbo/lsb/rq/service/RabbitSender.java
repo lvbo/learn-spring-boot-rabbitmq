@@ -50,7 +50,6 @@ public class RabbitSender implements RabbitTemplate.ReturnCallback, RabbitTempla
         obj.setId(123);
         obj.setName("zhangsan");
         obj.setValue("data");
-        System.out.println("发送 : " + obj);
-        this.rabbitTemplate.convertAndSend("queueB", obj);
+        this.rabbitTemplate.convertAndSend(RabbitConfig.OBJECT_QUEUE, obj);
     }
 }
