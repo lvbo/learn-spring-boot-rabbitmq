@@ -13,7 +13,7 @@ spring:
       type: direct
       direct:
         # 默认为AUTO
-        acknowledge-mode: MANUAL
+        acknowledge-mode: AUTO
       simple:
         # 默认为AUTO
         acknowledge-mode: MANUAL

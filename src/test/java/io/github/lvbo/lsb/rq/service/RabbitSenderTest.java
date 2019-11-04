@@ -23,17 +23,6 @@ public class RabbitSenderTest {
 
     @Test
     public void testSendRouting1() {
-//        rabbitTemplate.convertAndSend("direct_exchange_a","routing_1", "test1");
-//        rabbitTemplate.convertAndSend("routing_1", "test1");
-        MessagePostProcessor messagePostProcessor = new MessagePostProcessor() {
-            @Override
-            public Message postProcessMessage(Message message) throws AmqpException {
-                message.getMessageProperties().setHeader("header1", "mm");
-                return message;
-            }
-        };
-//        rabbitTemplate.convertAndSend("direct_exchange_c","routing_2", "test1", messagePostProcessor);
-        rabbitTemplate.convertAndSend(null, "hello_queue", "test1", messagePostProcessor);
     }
 
     @Test
@@ -94,5 +83,14 @@ public class RabbitSenderTest {
     @Test
     public void sendToManualAckQueueFail() {
         rabbitSender.send("", RabbitConfig.MANUAL_ACK_QUEUE, "我是一条fail消息!");
+    }
+
+    @Test
+    public void sendToBringHeaderMsg() {
+        MessagePostProcessor messagePostProcessor = message -> {
+            message.getMessageProperties().setHeader(RabbitConfig.MY_MSG_HEADER, "同学是我呀！");
+            return message;
+        };
+        rabbitTemplate.convertAndSend("", RabbitConfig.BRING_HEADER_MESSAGE_QUEUE, "test1", messagePostProcessor);
     }
 }
