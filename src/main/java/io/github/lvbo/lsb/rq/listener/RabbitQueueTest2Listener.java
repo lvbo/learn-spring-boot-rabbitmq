@@ -8,12 +8,12 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
 @Component
-@RabbitListener(queues = RabbitConfig.QUEUE_TEST_4)
+@RabbitListener(queues = RabbitConfig.QUEUE_TEST_2)
 @Slf4j
-public class RabbitQueueTest4Listener {
+public class RabbitQueueTest2Listener {
 
     @RabbitHandler
     public void process(@Payload String payload) {
-        log.info("queue_test_4 receive msg: {}", payload);
+        log.info("queue_test_2 receive msg: {}", payload);
     }
 }

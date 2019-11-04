@@ -11,8 +11,8 @@ public class RabbitConsumer {
     public static void main(String[] args) throws IOException, TimeoutException, InterruptedException {
         Address[] addresses = new Address[] {new Address("127.0.0.1", 5672)};
         ConnectionFactory connectionFactory = new ConnectionFactory();
-        connectionFactory.setUsername("root");
-        connectionFactory.setPassword("root123");
+        connectionFactory.setUsername("admin");
+        connectionFactory.setPassword("admin");
         Connection connection = connectionFactory.newConnection(addresses);
         final Channel channel = connection.createChannel();
         channel.basicQos(64);
@@ -21,9 +21,9 @@ public class RabbitConsumer {
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 System.out.println("recever message:" + new String(body));
+                //  给大家演示一下确认和不确认的情况
                 channel.basicAck(envelope.getDeliveryTag(), false);
             }
-
         };
 
         channel.basicConsume("queue_demo", consumer);

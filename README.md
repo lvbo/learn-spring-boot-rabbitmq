@@ -6,3 +6,7 @@
 ## io.github.lvbo.lsb.rq.example
 
 这个包下的类是使用原生client api的写法 
+
+## 测试代码中queue和exchange的绑定关系图
+
+![绑定关系](./queue和exchange的绑定关系图.png)
