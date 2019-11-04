@@ -22,15 +22,16 @@ public class RabbitSender implements RabbitTemplate.ReturnCallback, RabbitTempla
 
     @Override
     public void returnedMessage(Message message, int replyCode, String replyText, String exchange, String routingKey) {
-
+        log.info("messge: {}, replyCode: {}, replyText: {},  exchange: {}, routingKey: {}", message.toString(),
+                replyCode, replyText, exchange, routingKey);
     }
 
     @Override
     public void confirm(CorrelationData correlationData, boolean ack, String cause) {
         if (!ack) {
-            log.info("消息发送失败 cause: {} data: {}", cause, correlationData.toString());
+            log.info("消息发送失败 cause: {} data: {}", cause, correlationData);
         } else {
-            log.info("消息发送成功 data: {}", correlationData.toString());
+            log.info("消息发送成功 data: {}", correlationData);
         }
     }
 
@@ -39,8 +40,12 @@ public class RabbitSender implements RabbitTemplate.ReturnCallback, RabbitTempla
     }
 
     public void send(String exchangeName, String routingKey, String content) {
-//        this.rabbitTemplate.setReturnCallback(this::returnedMessage);
-//        this.rabbitTemplate.setConfirmCallback(this::confirm);
+        this.rabbitTemplate.convertAndSend(exchangeName, routingKey, content);
+    }
+
+    public void sendAndConfirmReturn(String exchangeName, String routingKey, String content) {
+        this.rabbitTemplate.setReturnCallback(this::returnedMessage);
+        this.rabbitTemplate.setConfirmCallback(this::confirm);
         this.rabbitTemplate.convertAndSend(exchangeName, routingKey, content);
     }
 

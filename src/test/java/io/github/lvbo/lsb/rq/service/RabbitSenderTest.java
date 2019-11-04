@@ -3,8 +3,6 @@ package io.github.lvbo.lsb.rq.service;
 import io.github.lvbo.lsb.rq.config.RabbitConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.amqp.AmqpException;
-import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessagePostProcessor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -97,5 +95,15 @@ public class RabbitSenderTest {
     @Test
     public void sendObj() {
         rabbitSender.sendObj();
+    }
+
+    @Test
+    public void sendToHelloQueueWithConfirmReturn() {
+        rabbitSender.sendAndConfirmReturn("", RabbitConfig.HELLO_QUEUE, "Hello World!");
+    }
+
+    @Test
+    public void sendToMistakeQueueWithConfirmReturn() {
+        rabbitSender.sendAndConfirmReturn("", "mistake_queue", "Hello World!");
     }
 }

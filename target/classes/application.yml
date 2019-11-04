@@ -5,9 +5,9 @@ spring:
     username: admin
     password: admin
     # publisher-confirms默认为false
-    publisher-confirms: false
+    publisher-confirms: true
     # publisher-returns默认为false
-    publisher-returns: false
+    publisher-returns: true
     listener:
       # 默认为sample
       type: direct
