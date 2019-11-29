@@ -5,8 +5,8 @@
     <groupId>io.github.lvbo</groupId>
 	<artifactId>learn-spring-boot-rabbitmq</artifactId>
     <version>1.0.0</version>
-	<name>Learn Spring Boot swagger</name>
-	<description>Learn Spring Boot Swagger</description>
+	<name>Learn Spring Boot RabbitMQ</name>
+	<description>Learn Spring Boot RabbitMQ</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
